@@ -8,9 +8,25 @@
     <link rel="stylesheet" href="../css/contact.css">
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
+    <link rel="stylesheet" href="../css/landing.css">
     <title>Contact Us</title>
 </head>
 <body>
+  
+<div class="land-container">
+     <div class="navbar">
+       <div class="logo"><img src="../img/logo kids.jpg"width="180px"> </div>
+       <nav>
+          <ul>
+               <li><a href="">Home</a></li>
+               <li><a href="">Products</a></li>
+               <li><a href="">Contact Us</a></li>
+               <li><a href="">About US</a></li>
+               <li><a href="">CART</a></li>
+         </ul>
+       </nav>
+     </div>
+   </div>
     <section class="contact" id="contact">
         <div class="container">
             <div class="heading text-center">
