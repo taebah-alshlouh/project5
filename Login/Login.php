@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include_once './config.php';  #tama
+include_once '../Configration/connection.php';  #tama
 #include_once '../Configration/connection.php'; #sama
 
 
@@ -38,7 +38,7 @@ if (isset($_POST['submit'])){
     
     if($loginEmail_correct && $loginPassword_correct)
     {
-        header('location:../Welcome/Welcome.php');
+        header('location:http://localhost/project5/landing.html');
         $row['last-login']= date("d-m-Y - h:i:sa");
         
     }else

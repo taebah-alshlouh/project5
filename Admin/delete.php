@@ -55,9 +55,6 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
     </style>
 </head>
 <body>
-<header class="py-3 bg-dark">
-        <h1 class="text-center text-white"><small>Admin Dashboard</small></h1>
-    </header>
     <div class="wrapper">
         <div class="container-fluid">
             <div class="row">

@@ -33,7 +33,6 @@
                 <div class="col-md-12">
                     <div class="mt-5 mb-3 clearfix">
                         <h2 class="pull-left">Users Details</h2>
-                        <a href="create.php" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Add New User</a>
                     </div>
                     <?php
                     // Include config file
@@ -43,7 +42,7 @@
                     $sql = "SELECT * FROM register;";
                     if($result = mysqli_query($conn, $sql)){
                         if(mysqli_num_rows($result) > 0){
-                            echo '<table class="table table-bordered table-striped" style="width: 20%; height: 10%; margin:4% 5%">';
+                            echo '<table class="table table-bordered table-striped" style="width: 20%; height: 10%;">';
                                 echo "<thead>";
                                     echo "<tr>";
                                         echo "<th>#</th>";
@@ -71,11 +70,6 @@
                                         echo "<td>" . $row['Email'] . "</td>";
                                         echo "<td>" . $row['Password'] . "</td>";
                                         echo "<td>" . $row['con_Password'] . "</td>";
-
-                                        echo "<td>";
-                                            echo '<a href="update.php?id='. $row['id'] .'" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
-                                            echo '<a href="delete.php?id='. $row['id'] .'" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
-                                        echo "</td>";
                                     echo "</tr>";
                                 }
                                 echo "</tbody>";                            
@@ -96,78 +90,6 @@
             </div>        
         </div>
     </div>
- <!-- Main sidebar -->
- <!-- <div id="sidebar-main" class="sidebar sidebar-default sidebar-separate sidebar-fixed">
-        <div class="sidebar-content"> -->
-
-            
-            <!-- /Sidebar Category -->
-            <!-- <div class="sidebar-category sidebar-default">
-                <div class="category-title">
-                    <span>DASHBOARD</span>
-                </div>
-                <div class="category-content">
-                    <ul id="fruits-nav" class="nav flex-column">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="fa fa-pencil" aria-hidden="true"></i>
-                                Users
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="fa fa-pencil" aria-hidden="true"></i>
-                                Categories
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link active">
-                                <i class="fa fa-pencil" aria-hidden="true"></i>
-                                Products
-                            </a>
-                        </li>
-                    </ul> -->
-                    <!-- /Nav -->
-                <!-- </div> -->
-                <!-- /Category Content -->
-            <!-- </div> -->
-            <!-- Sidebar Category -->
-           <!-- <div class="sidebar-category sidebar-default">
-                <div class="category-title">
-                    <span>Contenu éditable</span>
-                </div>
-                <div class="category-content">
-                    <ul id="sidebar-editable-nav" class="nav flex-column">
-                        <li class="nav-item">
-                            <a href="/admin/customers" class="nav-link">
-                                <i class="fa fa-pencil" aria-hidden="true"></i>
-                                customers
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/admin/resettest" class="nav-link">
-                                <i class="fa fa-pencil" aria-hidden="true"></i>
-                                reset test
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/admin/usersprofiles" class="nav-link">
-                                <i class="fa fa-pencil" aria-hidden="true"></i>
-                                users profiles
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/admin/users" class="nav-link active">
-                                <i class="fa fa-pencil" aria-hidden="true"></i>
-                                users
-                            </a>
-                        </li>
-                    </ul>
-                    /Nav
-                </div>-->
-                <!-- /Category Content -->
-            <!-- </div> -->
-            <!-- /Sidebar Category -->
             
         </div>
     </div>

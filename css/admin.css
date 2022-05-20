@@ -170,7 +170,9 @@ body {
     display: table-cell;
   }
 }
-
+.table table-bordered table-striped{
+  
+}
 /* create page */
 .mt-5{
     margin-top: 3rem!important;
