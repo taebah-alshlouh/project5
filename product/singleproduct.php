@@ -1,5 +1,7 @@
 <?php  
 include_once '../Configration/connection.php';
+include_once './function.inc.php';
+date_default_timezone_set("Asia/Amman");
 
 ?>
 <!DOCTYPE html>
@@ -9,12 +11,12 @@ include_once '../Configration/connection.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    
     <title>Details</title>
 </head>
 <body>
 <br><br><br><br>
 <section class="section-content padding-y bg">
+    
     <div class="container">
 
         <!-- ============================ COMPONENT 1 ================================= -->
@@ -56,45 +58,31 @@ include_once '../Configration/connection.php';
                                 <input type="hidden" name="hidden_price" value="<?php echo $row["price"]; ?>">
                                 <input type="submit" name="add" class="btn btn-block btn-success" value="Added to cart">
                             </article> <!-- product-info-aside .// -->
-                        </main> <!-- col.// -->
+                           
+                        <!-- col.// -->
                 <?php  }
                 } else {
                     echo "<h3>NO DATA FOUND.</h3>";
-                } ?>
-            </div> <!-- row.// -->
-            </form>
-        </div> <!-- card.// -->
-        <!-- ============================ COMPONENT 1 END .// ================================= -->
-        <br>
+                } 
+                ?>
+             </main>
+            </form>   
+<div class="container" style="margin-top:-7% ; margin-left:50%; ">
+<?php
 
-        <div class="row">
-            <div class="col-md-9">
+    echo "<form  method='POST' action='".setComments($conn)."'>
+        <input type='hidden' value='User Comment :'>
+        <input type='hidden' name='date' value='".date('Y-m-d H:i:s')."'>
+        <textarea name='msg'  cols='30' rows='5'></textarea><br>
+        <button class='btn btn-info' style='margin-top:2%;'type='submit' name='CommentSubmit' >Comment</button>
+    </form>" ;
 
-               <!-- <header class="section-heading">
-                    <h3>Customer Reviews </h3>
-                </header>
-                 <article class="box mb-3">
-                    <div class="icontext w-100">
-                        <img src="./images/avatars/avatar2.jpg" class="img-xs icon rounded-circle">
-                        <div class="text">
-                            <span class="date text-muted float-md-right">14.12.2021 </span>
-                            <h6 class="mb-1">Anuj Garg </h6>
-                        </div>
-                    </div> ### icontext.// 
-                    <div class="mt-3">
-                        <p>
-                            Dummy comment Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip
-                        </p>
-                    </div>
-                </article> -->
-           <!-- </div>  col.// -->
-        </div> <!-- row.// -->
-    </div> <!-- container .//  -->
-</section>
-<!-- ========================= SECTION CONTENT END// ========================= -->
+    GetComments($conn);
+?>
 
+
+</div>
+       
 </body>
 
 </html>
