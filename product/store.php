@@ -1,0 +1,195 @@
+<?php
+include_once '../Configration/connection.php';
+
+
+if(isset($_GET['add'])){
+    $quantity=$_GET['quantity'];
+      $add_id = $_GET['add'];
+      $id=$_GET['id_prod'];
+      $adding="INSERT INTO `cart`(`product_id`, `quantity`) VALUES ('$id','$quantity');";
+      mysqli_query($conn,$adding);
+  
+   };
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="product.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+
+    
+    <title>Store</title>
+    <style>
+        .prod{width: 240px; height: 150px; margin-left: 2%;}
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+       <div class="logo"><img src="../img/logo_kids.jpg"width="180px"> </div>
+       <nav>
+<ul>
+<li><a href="">Home</a></li>
+<li><a href="">Products</a></li>
+<li><a href="">Contact Us</a></li>
+<li><a href="">About US</a></li>
+<li><a href="">CART</a></li>
+<li><select class="custom-select custom-select-sm mb-3">
+     <option selected disabled> Change Category </option>
+        <?php	$r ="SELECT * FROM categories";
+         $res_category=mysqli_query($conn, $r);
+		while ($row = mysqli_fetch_array($res_category)) { ?>
+          <option><a href="category.php?category=<?php echo $row['category_id']; ?>"><?php echo $row['category_name'];?>
+             </a></option>
+         <?php
+		}
+          ?>
+ </select></li>
+</ul>
+       </nav>
+    </div>
+    <br><br><br>
+<section class="section-content ml">
+    <div class="container">
+
+        <div class="row" style="justify-content: center!important;">
+            <main class="col-md-9">
+
+                <!-- <header class="border-bottom mb-4 pb-3">
+                    <div class="form-inline">
+                        <span class="mr-md-auto">  </span>
+
+                    </div>
+                </header>sect-heading -->
+
+                <div class="row">
+                    <?php
+
+							$limit = 9;
+
+							if (isset($_GET['page'])) {
+								$page = $_GET['page'];
+							} else {
+								$page = 2;
+							}
+							$offset = ($page - 1) * $limit;
+							$record_index = ($page - 1) * $limit;
+							$product_query = "SELECT * FROM `products` LIMIT $record_index, $limit ";
+							$product_result = mysqli_query($conn, $product_query);
+
+							if (mysqli_num_rows($product_result) > 0) {
+								while ($row = mysqli_fetch_assoc($product_result)) {
+							?>
+
+                    <div class="col-md-4">
+                        <form method="GET">
+                        <figure class="card card-product-grid">
+                                <div class="img-wrap">
+                                    <img class="prod" src="<?php echo $row['img'];?>">
+                                    <!-- ################################################### -->
+                                    <label><?php 
+                                   $cat= "SELECT categories.category_name FROM categories
+                                   INNER JOIN products
+                                   ON products.category_id=categories.category_id;";
+                                   $res=mysqli_query($conn, $cat);
+                                
+                                  ?></label><br>
+
+                                </div> 
+                                <figcaption class="info-wrap">
+                                    <div class="fix-height">
+                                        <a href="product-detail.php?id=<?php echo $row['product_id']; ?>"
+                                            class="title"  style="color: #bd2130"><?php echo $row['product_name']; ?></a>
+
+                                        <div class="price-wrap mt-2">
+                                            <span class="price">Price: <?php echo $row['price']; ?> $</span>
+                                        </div> 
+                                    </div>
+                                    <!-- col.// -->
+                                    <div class="col">
+                                        <p class="card-text">Quantity:
+                                            <input type="number" min="1" max="25" name="quantity" class="form-control"                                               value="1" style="width: 60px;">
+                                        </p>
+                                    </div> <!-- col.// -->
+                                    <br>
+
+                                    <input type="hidden" name="hidden_product_name"
+                                        value="<?php echo $row["product_name"]; ?>">
+                                            <input type="hidden" name="id_prod" value="<?php echo $row['product_id'] ?>">
+                                            
+                                            <!-- <input type="hidden" name="id_user"> -->
+                                    <input type="hidden" name="hidden_price" value="<?php echo $row["price"]; ?>">
+                                    <input type="submit" name="add" class="btn btn-block btn-info" style="background-color: #bd2130; border:1px solid #bd2130"
+                                        value="Add to cart">
+                                </figcaption>
+                            </figure>
+                        </form>
+                    </div> <!-- col.// -->
+
+                    <?php  }
+			}else{
+				echo "<h3>NO DATA FOUND.</h3>";
+			} ?>
+                </div> <!-- row end.// -->
+
+
+                <div style="text-align:center" class="col-lg-12">
+
+
+				<?php
+					$dep_query1 = "SELECT * FROM `products`";
+					$result1 = mysqli_query($conn, $dep_query1);
+
+					if (mysqli_num_rows($result1) > 0) {
+
+						$total_records = mysqli_num_rows($result1);
+						$total_pages = ceil($total_records / $limit);
+                        // change the position of the pagination
+						echo '  <ul class="pagination" style="justify-content: center!important;">';
+						if ($page > 1) {
+							echo '<li class="paginate_button page-item previous" id="zero_config_previous"><a href="store.php?page=' . ($page - 1) . '" aria-controls="zero_config" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li>';
+						}
+						for ($i = 1; $i < $total_pages; $i++) {
+							if ($i == $page) {
+								$active = "active";
+							} else {
+								$active = "";
+							}
+							echo '<li class="paginate_button page-item ' . $active . '"><a href="store.php?page=' . $i . '" aria-controls="zero_config"  class="page-link">' . $i . '</a></li>';
+						}
+						if ($total_pages > $page) {
+							echo '<li class="paginate_button page-item next" id="zero_config_next"><a href="store.php?page=' . ($page + 1) . '" aria-controls="zero_config" data-dt-idx="7" tabindex="0" class="page-link">Next</a></li>';
+						}
+						echo '</ul>';
+
+					?>
+
+					<!-- <?php } ?> -->
+                                                            
+                                                              
+
+                </div>
+
+            </main> <!-- col.// -->
+
+        </div>
+
+    </div> <!-- container .//  -->
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->
+
+<!-- ========================= FOOTER ========================= -->
+
+
+<!-- ========================= FOOTER END // ========================= -->
+
+
+<script>
+$("input[type='number']").inputSpinner()
+</script>
+    
+</body>
+</html>

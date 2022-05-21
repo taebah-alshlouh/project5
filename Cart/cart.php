@@ -1,282 +1,144 @@
+<?php
+  session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/cart.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/landing.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
-    <title>Shopping Cart </title>
+  <meta charset="UTF-8">
+  <meta name="author" content="Sahil Kumar">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Cart</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css' />
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css' />
 </head>
+
 <body>
+  <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="index.php"><i class="fas fa-mobile-alt"></i>&nbsp;&nbsp;Mobile Store</a>
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="index.php"><i class="fas fa-mobile-alt mr-2"></i>Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><i class="fas fa-th-list mr-2"></i>Categories</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="checkout.php"><i class="fas fa-money-check-alt mr-2"></i>Checkout</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="cart.php"><i class="fas fa-shopping-cart"></i> <span id="cart-item" class="badge badge-danger"></span></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
-
-<div class="land-container">
-     <div class="navbar">
-       <div class="logo"><img src="../img/logo kids.jpg"width="180px"> </div>
-       <nav>
-          <ul>
-               <li><a href="">Home</a></li>
-               <li><a href="">Products</a></li>
-               <li><a href="">Contact Us</a></li>
-               <li><a href="">About US</a></li>
-               <li><a href="">CART</a></li>
-         </ul>
-       </nav>
-     </div>
-   </div>
-<!-- ////////////the shopping cart/////////////////////// -->
-   <div class="container px-3 my-5 clearfix">
-    <!-- Shopping cart table -->
-    <div class="card">
-        <div class="card-header">
-            <h2>Shopping Cart</h2>
+  <div class="container-fluied">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div style="display:<?php if (isset($_SESSION['showAlert'])) {
+  echo $_SESSION['showAlert'];
+} else {
+  echo 'none';
+} unset($_SESSION['showAlert']); ?>" class="alert alert-success alert-dismissible mt-3">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <strong><?php if (isset($_SESSION['message'])) {
+  echo $_SESSION['message'];
+} unset($_SESSION['showAlert']); ?></strong>
         </div>
-        <div class="card-body">
-            <div class="table-responsive">
-              <table class="table table-bordered m-0">
-                <thead>
-                  <tr>
-                    <!-- Set columns width -->
-                    <th class="text-center py-3 px-4" style="min-width: 400px;">Product Name &amp; Details</th>
-                    <th class="text-right py-3 px-4" style="width: 100px;">Price</th>
-                    <th class="text-center py-3 px-4" style="width: 120px;">Quantity</th>
-                    <th class="text-right py-3 px-4" style="width: 100px;">Total</th>
-                    <th class="text-center align-middle py-3 px-0" style="width: 40px;"><a href="#" class="shop-tooltip float-none text-light" title="" data-original-title="Clear cart"><i class="ino ion-md-trash"></i></a></th>
-                  </tr>
-                </thead>
-                <tbody>
-        
-                  <tr>
-                    <td class="p-4">
-                      <div class="media align-items-center">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="d-block ui-w-40 ui-bordered mr-4" alt="">
-                        <div class="media-body">
-                          <a href="#" class="d-block text-dark">Product 1</a>
-                          <small>
-                            <span class="text-muted">Color:</span>
-                            <span class="ui-product-color ui-product-color-sm align-text-bottom" style="background:#e81e2c;"></span> &nbsp;
-                            <span class="text-muted">Size: </span> EU 37 &nbsp;
-                            <span class="text-muted">Ships from: </span> China
-                          </small>
-                        </div>
-                      </div>
-                    </td>
-                    <td class="text-right font-weight-semibold align-middle p-4">$57.55</td>
-                    <td class="align-middle p-4"><input type="text" class="form-control text-center" value="2"></td>
-                    <td class="text-right font-weight-semibold align-middle p-4">$115.1</td>
-                    <td class="text-center align-middle px-0"><a href="#" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</a></td>
-                  </tr>
-        
-                  <tr>
-                    <td class="p-4">
-                      <div class="media align-items-center">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar6.png" class="d-block ui-w-40 ui-bordered mr-4" alt="">
-                        <div class="media-body">
-                          <a href="#" class="d-block text-dark">Product 2</a>
-                          <small>
-                            <span class="text-muted">Color:</span>
-                            <span class="ui-product-color ui-product-color-sm align-text-bottom" style="background:#000;"></span> &nbsp;
-                            <span class="text-muted">Storage: </span> 32GB &nbsp;
-                            <span class="text-muted">Warranty: </span> Standard - 1 year &nbsp;
-                            <span class="text-muted">Ships from: </span> China
-                          </small>
-                        </div>
-                      </div>
-                    </td>
-                    <td class="text-right font-weight-semibold align-middle p-4">$1049.00</td>
-                    <td class="align-middle p-4"><input type="text" class="form-control text-center" value="1"></td>
-                    <td class="text-right font-weight-semibold align-middle p-4">$1049.00</td>
-                    <td class="text-center align-middle px-0"><a href="#" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</a></td>
-                  </tr>
-        
-                  <tr>
-                    <td class="p-4">
-                      <div class="media align-items-center">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="d-block ui-w-40 ui-bordered mr-4" alt="">
-                        <div class="media-body">
-                          <a href="#" class="d-block text-dark">Product 3</a>
-                          <small>
-                            <span class="text-muted">Ships from: </span> Germany
-                          </small>
-                        </div>
-                      </div>
-                    </td>
-                    <td class="text-right font-weight-semibold align-middle p-4">$20.55</td>
-                    <td class="align-middle p-4"><input type="text" class="form-control text-center" value="1"></td>
-                    <td class="text-right font-weight-semibold align-middle p-4">$20.55</td>
-                    <td class="text-center align-middle px-0"><a href="#" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</a></td>
-                  </tr>
-        
-                </tbody>
-              </table>
-            </div>
-            <!-- / Shopping cart table -->
-        
-            <div class="d-flex flex-wrap justify-content-between align-items-center pb-4">
-              <div class="mt-4">
-                <label class="text-muted font-weight-normal">Promocode</label>
-                <input type="text" placeholder="ABC" class="form-control">
-              </div>
-              <div class="d-flex">
-                <div class="text-right mt-4 mr-5">
-                  <label class="text-muted font-weight-normal m-0">Discount</label>
-                  <div class="text-large"><strong>$20</strong></div>
-                </div>
-                <div class="text-right mt-4">
-                  <label class="text-muted font-weight-normal m-0">Total price</label>
-                  <div class="text-large"><strong>$1164.65</strong></div>
-                </div>
-              </div>
-            </div>
-        
-            <div class="float-right">
-              <button type="button" class="btn btn-lg btn-default md-btn-flat mt-2 mr-3">Back to shopping</button>
-              <button type="button" class="btn btn-lg btn-primary mt-2">Checkout</button>
-            </div>
-        
-          </div>
-      </div>
-  </div>
- <!------------- footer section start ----------------->
- <div class="container-fluied">
-        <footer
-                class="text-center text-lg-start text-white"
-                style="background-color: #929fba"
-                >
-          <!-- Grid container -->
-          <div class="container p-4 pb-0">
-            <!-- Section: Links -->
-            <section class="">
-              <!--Grid row-->
-              <div class="row">
-                <!-- Grid column -->
-                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-                  <h6 class="text-uppercase mb-4 font-weight-bold">
-                    Toys Shop
-                  </h6>
-                  <p>
-                    Toys shop has announced that Toys store is opening , its separate platform that provides The most distinctive games that the child spends his time enjoying and learning, has amassed more than 35 million customers.
-                  </p>
-                </div>
-                <!-- Grid column -->
-      
-                <hr class="w-100 clearfix d-md-none" />
-      
-                <!-- Grid column -->
-                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-                  <h6 class="text-uppercase mb-4 font-weight-bold">Categores</h6>
-                  <p>
-                    <a class="text-white">Electronic Toys</a>
-                  </p>
-                  <p>
-                    <a class="text-white">Crative Toys</a>
-                  </p>
-                  <p>
-                    <a class="text-white">Educational Toys</a>
-                  </p>
-                  <p>
-                    <a class="text-white">Dolls Toys</a>
-                  </p>
-                </div>
-                <!-- Grid column -->
-      
-                <hr class="w-100 clearfix d-md-none" />
-      
-                <!-- Grid column -->
-                <hr class="w-100 clearfix d-md-none" />
-      
-                <!-- Grid column -->
-                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-                  <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
-                  <p><i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
-                  <p><i class="fas fa-envelope mr-3"></i> info@gmail.com</p>
-                  <p><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
-                  <p><i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
-                </div>
-                <!-- Grid column -->
-      
-                <!-- Grid column -->
-                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-                  <h6 class="text-uppercase mb-4 font-weight-bold">Follow us</h6>
-      
-                  <!-- Facebook -->
-                  <a
-                     class="btn btn-primary btn-floating m-1"
-                     style="background-color: #3b5998"
-                     href="#!"
-                     role="button"
-                     ><i class="fab fa-facebook-f"></i
-                    ></a>
-      
-                  <!-- Twitter -->
-                  <a
-                     class="btn btn-primary btn-floating m-1"
-                     style="background-color: #55acee"
-                     href="#!"
-                     role="button"
-                     ><i class="fab fa-twitter"></i
-                    ></a>
-      
-                  <!-- Google -->
-                  <a
-                     class="btn btn-primary btn-floating m-1"
-                     style="background-color: #dd4b39"
-                     href="#!"
-                     role="button"
-                     ><i class="fab fa-google"></i
-                    ></a>
-      
-                  <!-- Instagram -->
-                  <a
-                     class="btn btn-primary btn-floating m-1"
-                     style="background-color: #ac2bac"
-                     href="#!"
-                     role="button"
-                     ><i class="fab fa-instagram"></i
-                    ></a>
-      
-                  <!-- Linkedin -->
-                  <a
-                     class="btn btn-primary btn-floating m-1"
-                     style="background-color: #0082ca"
-                     href="#!"
-                     role="button"
-                     ><i class="fab fa-linkedin-in"></i
-                    ></a>
-                  <!-- Github -->
-                  <a
-                     class="btn btn-primary btn-floating m-1"
-                     style="background-color: #333333"
-                     href="#!"
-                     role="button"
-                     ><i class="fab fa-github"></i
-                    ></a>
-                </div>
-              </div>
-              <!--Grid row-->
-            </section>
-            <!-- Section: Links -->
-          </div>
-          <!-- Grid container -->
-      
-          <!-- Copyright -->
-          <div
-               class="text-center p-3"
-               style="background-color: rgba(0, 0, 0, 0.2)"
-               >
-            © 2020 Copyright:
-            <a class="text-white" href="https://mdbootstrap.com/"
-               >MDBootstrap.com</a
-              >
-          </div>
-          <!-- Copyright -->
-        </footer>
-        <!-- Footer -->
+        <div class="table-responsive mt-2">
+          <table class="table table-bordered table-striped text-center">
+            <thead>
+              <tr>
+                <td colspan="7">
+                  <h4 class="text-center text-info m-0">Products in your cart!</h4>
+                </td>
+              </tr>
+              <tr>
+                <th>ID</th>
+                <th>Image</th>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total Price</th>
+                <th>
+                  <a href="action.php?clear=all" class="badge-danger badge p-1" onclick="return confirm('Are you sure want to clear your cart?');"><i class="fas fa-trash"></i>&nbsp;&nbsp;Clear Cart</a>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php
+            include_once '../Configration/connection.php';
 
+            if(isset($_POST['update_update_btn'])){
+               $update_value = $_POST['update_quantity'];
+               $update_id = $_POST['update_quantity_id'];
+               $update= "UPDATE cart SET quantity ='$update_value' WHERE product_id ='$update_id'";
+               $update_quantity_query = mysqli_query($conn,$update);
+   
+            };
+            $stmt = $conn->prepare('SELECT * FROM products INNER JOIN cart ON products.product_id=cart.product_id');
+                $stmt->execute();
+                $result = $stmt->get_result();
+                $grand_total = 0;
+                while ($row = $result->fetch_assoc()):
+
+              ?>
+              <tr>
+                <td><?= $row['product_id'] ?></td>
+                <input type="hidden" class="pid" value="<?= $row['product_id'] ?>">
+                <td><img src="<?php echo $row['img'];?>" width="50"></td>
+                <td><?= $row['product_name'] ?></td>
+                <td>
+                  <i class="fas fa-rupee-sign"></i>&nbsp;&nbsp;<?= number_format($row['price'],2); ?>
+                </td>
+                <input type="hidden" class="pprice" value="<?= $row['price'] ?>">
+                <td>
+                  <!-- <input type="number" class="form-control itemQty" value="" style="width:75px;"> -->
+                  <form  method="post">
+                  <input type="hidden" name="update_quantity_id" value="<?php echo $fetch_cart['product_id']; ?>" >
+                  <input type="number" name="update_quantity" min="1"  value="<?php echo $fetch_cart['quantity']; ?>" >
+                  <input type="submit" value="update" name="update_update_btn">
+               </form>
+                </td>
+                <td><i class="fas fa-rupee-sign"></i>&nbsp;&nbsp;<?php echo $sub_total = ($row['price'] * $row['quantity']);?></td>
+                <td>
+                  <a href="action.php?remove=<?= $row['product_id'] ?>" class="text-danger lead" onclick="return confirm('Are you sure want to remove this item?');"><i class="fas fa-trash-alt"></i></a>
+                </td>
+              </tr>
+              <?php $grand_total += $sub_total;
+              
+              ?>
+              <?php endwhile; ?>
+              <tr>
+                <td colspan="3">
+                  <a href="index.php" class="btn btn-success"><i class="fas fa-cart-plus"></i>&nbsp;&nbsp;Continue
+                    Shopping</a>
+                </td>
+                <td colspan="2"><b>Grand Total</b></td>
+                <td><b><i class="fas fa-rupee-sign"></i>&nbsp;&nbsp;<?php echo $grand_total; ?></b></td>
+                <td>
+                  <a href="../checkout/checkout.php" class="btn btn-info <?= ($grand_total > 1) ? '' : 'disabled'; ?>"><i class="far fa-credit-card"></i>&nbsp;&nbsp;Checkout</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js'></script>
 </body>
+
 </html>
