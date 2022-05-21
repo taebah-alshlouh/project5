@@ -20,15 +20,15 @@
   <button class="btn btn-outline-primary" type="button">Logout</button>
 </nav>
 <!----------iframe------------->
-<iframe src="create.php" frameborder="0" name="iframe" style="position:absolute; width:70em; height: 65em; margin-left:14%; "> </iframe>
+<iframe src="create.php" frameborder="0" name="iframe" style="position:absolute; width:70em; height: 65em; margin-left:16%; "> </iframe>
     <!-- Main sidebar -->
-<div class="asid"  style =" width:13%; position:absolute; margin-left:2%; margin-top:2%; padding-left:2%;">
+<div class="asid"  style =" width:15%; position:absolute; margin-left:1%; margin-top:1%; padding-left:2%;">
     <div id="sidebar-main" class="sidebar sidebar-default sidebar-separate sidebar-fixed">
         <div class="sidebar-content">
             <!-- /Sidebar Category -->
             <div class="sidebar-category sidebar-default">
                 <div class="category-title">
-                    <span>View Users</span>
+                    <span> Users</span>
                 </div>
                 <div class="category-content">
                     <ul id="fruits-nav" class="nav flex-column">
@@ -41,7 +41,7 @@
                         <li class="nav-item">
                             <a href="create.php" class="nav-link" target="iframe">
                                 <i class="fa fa-pencil" aria-hidden="true"></i>
-                                Create User
+                                Add User
                             </a>
                         </li>
                         <li class="nav-item">
@@ -58,7 +58,7 @@
             <!-- /Sidebar Category -->
             <div class="sidebar-category sidebar-default">
                 <div class="category-title">
-                    <span>View Categories</span>
+                    <span> Categories</span>
                 </div>
                
                 <div class="category-content">
@@ -84,7 +84,7 @@
         </div>
         <div class="sidebar-category sidebar-default">
             <div class="category-title">
-                <span>View Products</span>
+                <span>Products</span>
             </div>
             <div class="category-content">
                 <ul id="sidebar-editable-nav" class="nav flex-column">
