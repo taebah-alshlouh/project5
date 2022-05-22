@@ -20,6 +20,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $product_name = $input_name;
     }
 
+    $input_descip = trim($_POST["description"]);
+    if(empty($input_descip)){
+        $description_err = "Please Enter  a Product desciption.";
+    }else{
+        $description = $input_descip;
+    }
+    
     $input_name1 = trim($_POST["price"]);
     if(empty($input_name1)){
         $price_err = "Please Enter an Update a Product Price.";

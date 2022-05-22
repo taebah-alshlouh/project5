@@ -120,8 +120,6 @@ font-family: 'Patrick Hand', cursive;">
                 <!-- Regestration/Signup.php -->
 </fieldset>
         </form>
-
-
         <marquee behavior="alternate">
     <img src="https://img.freepik.com/free-vector/kids-train-toy-cartoon-style-vector-illustration-isolated-white-background_356415-1272.jpg?size=626&ext=jpg" alt="">
   </marquee>

@@ -8,6 +8,8 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
+
     <style>
         .prod{
             width:100%;
@@ -41,7 +43,7 @@
                     include_once '../Configration/connection.php';
                   
                     // Attempt select query execution
-                    $sql = "SELECT * FROM products;";
+                    $sql = "SELECT * FROM products ORDER BY product_id DESC;";
                     if($result = mysqli_query($conn, $sql)){
                         if(mysqli_num_rows($result) > 0){
                             echo '<table class="table table-bordered table-striped">';
@@ -52,8 +54,8 @@
                                         echo "<th>Description</th>";
                                         echo "<th>Price</th>";
                                         echo "<th>Status</th>";
-                                        echo "<th>Category ID</th>";
                                         echo "<th>Img</th>";
+                                        echo "<th>Action</th>";
 
                                         
                                     echo "</tr>";

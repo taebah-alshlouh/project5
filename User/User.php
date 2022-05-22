@@ -38,8 +38,8 @@
  <li><a href="../Welcome/ContactUs.html">Contact Us</a></li>
  <li><a href="../Welcome/AboutUs.html">About US</a></li>
  
- <li><a href="../Login/Login.php">Login</a></li>
- <li><a href="../Regestration/Signup.php">Sign Up</a></li>
+ 
+
  <li><a href="../User/User.php"><i class="fa fa-user" aria-hidden="true"></i></a></li>
  <li><a href=""><img style="position:absolute; margin-top:-2.5%; width:4%" src="../img/cart2.png" ></a></li>
 

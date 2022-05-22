@@ -5,7 +5,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
     include_once '../Configration/connection.php';
     
     // Prepare a delete statement
-    $sql = "DELETE FROM register WHERE id =$_POST[id];;";
+    $sql = "DELETE FROM register WHERE id =$_POST[id];";
     
     if($stmt = mysqli_prepare($conn, $sql)){
         // Bind variables to the prepared statement as parameters
@@ -33,7 +33,8 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
     // Check existence of id parameter
     if(empty(trim($_GET["id"]))){
         // URL doesn't contain id parameter. Redirect to error page
-        header("location: error.php");
+        // header("location: error.php");
+        echo "error";
         exit();
     }
 }
