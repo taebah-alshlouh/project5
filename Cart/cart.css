@@ -1,0 +1,31 @@
+
+.btn-info {
+    color: #fff;
+    background-color: #e46a64e6 !important;
+    border-color: #e46a64e6 !important;
+}
+.btn-success {
+    color: #fff;
+    background-color: #e46a64e6 !important;
+    border-color: #e46a64e6 !important;
+}
+.text-info {
+    color: #e46a64e6!important;
+}
+.badge-danger {
+    color: #fff;
+    background-color: #e46a64e6!important;
+}
+.trash{
+    color: white!important ;
+}
+.fa-trash{
+    color: #e46a64e6 ;
+}
+.update{
+    background-color:#e46a64e6 ;
+    border: 1px solid #e46a64e6;
+    border-radius: 4px;
+    color: white;
+    padding: 1%;
+}

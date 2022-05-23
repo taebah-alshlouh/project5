@@ -33,7 +33,7 @@ font-family: 'Patrick Hand', cursive;">
        <nav>
 <ul style="margin-right: 5%; font-family: 'Nunito', sans-serif;
 font-family: 'Patrick Hand', cursive; ">
- <li><a href="./index.html">Home</a></li>
+ <li><a href="./index.php">Home</a></li>
  <li><a href="./product/product.php">Products</a></li>
  <li><a href="./Welcome/ContactUs.html">Contact Us</a></li>
  <li><a href="./Welcome/AboutUs.html">About US</a></li>
@@ -176,129 +176,9 @@ Let's shop now.</h1> <a href="product/product.php"class=" btn-dicount ">click he
 </div>
 </div>
 
-
-<!-- //////////////////footer -->
-<div class="container-fluied">
-    <!-- Footer -->
-    <footer
-            class="text-center text-lg-start text-primary"
-            style="background: linear-gradient(to right, rgba(216, 112, 147, 0.377),rgba(216, 112, 147, 0.235), rgba(216, 112, 147, 0.087));"           
-            >
-      <!-- Grid container -->
-      <div class="container p-4 pb-0">
-        <!-- Section: Links -->
-        <section class="">
-          <!--Grid row-->
-          <div class="row">
-            <!-- Grid column -->
-            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-              <h6 class="text-uppercase mb-4 font-weight-bold">
-                Toys Shop
-              </h6>
-              <p>
-                Toys shop has announced that Toys store is opening , its separate platform that provides The most distinctive games that the child spends his time enjoying and learning, has amassed more than 35 million customers.
-              </p>
-            </div>
-            <!-- Grid column -->
-  
-            <hr class="w-100 clearfix d-md-none" />
-  
-            <!-- Grid column -->
-            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-              <h6 class="text-uppercase mb-4 font-weight-bold">Categores</h6>
-              <p >
-                <a>Electronic Toys</a>
-              </p>
-              <p>
-                <a>Crative Toys</a>
-              </p>
-              <p>
-                <a>Educational Toys</a>
-              </p>
-              <p>
-                <a>Dolls Toys</a>
-              </p>
-            </div>
-            <!-- Grid column -->
-  
-            <hr class="w-100 clearfix d-md-none" />
-  
-            <!-- Grid column -->
-            <hr class="w-100 clearfix d-md-none" />
-  
-            <!-- Grid column -->
-            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-              <h6 class="text-uppercase mb-4 font-weight-bold">Contact Us</h6>
-              <p><i class="fas fa-home mr-3"></i> Aqaba , Jordan</p>
-              <p><i class="fas fa-envelope mr-3"></i> info@mail.com</p>
-              <p><i class="fas fa-phone mr-3"></i> +960 7710101010</p>
-            </div>
-            <!-- Grid column -->
-  
-            <!-- Grid column -->
-            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-              <h6 class="text-uppercase mb-4 font-weight-bold">Follow us</h6>
-  
-              <!-- linkedin majd -->
-              <a
-                 class="btn btn-primary btn-floating m-1"
-                 style="background-color: #3b5998"
-                 href="#!"
-                 role="button"
-                 ><i class="fab fa-facebook-f"></i
-                ></a>
-  
-              
-  
-              <!-- github samer -->
-              <a
-                 class="btn btn-primary btn-floating m-1"
-                 style="background-color: #dd4b39"
-                 href="#!"
-                 role="button"
-                 ><i class="fab fa-google"></i
-                ></a>
-  
-              
-                    <br>
-              <!-- Linkedin -->
-              <a
-                 class="btn btn-primary btn-floating m-1"
-                 style="background-color: #0082ca"
-                 href="https://www.linkedin.com/in/tamara-al-shabatat-060452123/?challengeId=AQFBHTafIZQKgAAAAYAhs1i-oKYMHGzoCp7CFeBZxbEnPZafk74JDnX6xmEwh0tDvN3Eq6-LHqiH4WRl2oxvFyTOX64Dyzv3lQ&submissionId=3ffc26ce-3a62-e516-90b4-716d0cbeeb40"
-                 role="button" target="_blank"
-                 ><i class="fab fa-linkedin-in"></i
-                ></a>
-              <!-- Github -->
-              <a
-                 class="btn btn-primary btn-floating m-1"
-                 style="background-color: #333333"
-                 href="https://github.com/majdalbalawneh"
-                 role="button" target="_blank"
-                 ><i class="fab fa-github"></i
-                ></a>
-            </div>
-          </div>
-          <!--Grid row-->
-        </section>
-        <!-- Section: Links -->
-      </div>
-      <!-- Grid container -->
-  
-      <!-- Copyright -->
-      <div
-           class="text-center p-3"
-           style="background-color: rgba(0, 0, 0, 0.2)"
-           >
-        MST<sup>2</sup>&nbsp; © 2022 Copyright:
-        <a  href="https://www.orange.jo/ar/pages/default.aspx" target="_blank">Orange.jo</a> 
-          
-      </div>
-      <!-- Copyright -->
-    </footer>
-    <!-- Footer -->
-
-
+<?php
+ require_once('footer.html');
+?>
 
 </body>
 </html>

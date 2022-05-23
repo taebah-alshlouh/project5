@@ -76,11 +76,11 @@ if(isset($_POST['order_btn'])){
 
 <div class="container">
 
-<section class="checkout-form">
+<section class="checkout-form" style="background-color: #f8f9fa;">
 
-   <h1 class="heading">complete your order</h1>
+   <h1 class="heading" style="color:#e46a64e6;">complete your order</h1>
 
-   <form action="" method="post">
+   <form action="" method="post" style="background-color: #f8f9fa;">
 
    <div class="display-order">
       <?php
@@ -100,7 +100,7 @@ if(isset($_POST['order_btn'])){
          echo "<div class='display-order'><span>your cart is empty!</span></div>";
       }
       ?>
-      <span class="grand-total"> grand total : <?= $grand_total; ?> JD</span>
+      <span class="grand-total" style="background-color: #e46a64e6;"> grand total : <?= $grand_total; ?> JD</span>
    </div>
 
       <div class="flex">
@@ -134,10 +134,10 @@ if(isset($_POST['order_btn'])){
          </div>
          
       </div>
-      <input type="submit" value="order now" name="order_btn" class="btn">
+      <input type="submit" value="order now" name="order_btn" class="btn" style=" background-color:#e46a64e6;">
    </form>
 
 </section>
-   
+
 </body>
 </html>
