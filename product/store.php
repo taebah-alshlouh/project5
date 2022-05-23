@@ -57,30 +57,24 @@ if(isset($_GET['add'])){
 </head>
 <body>
 <div class="navbar">
-        <div class="logo"><img src="../img/logo_kids.gif"width="100px"> </div>
-       
-        <nav style="font-family: 'Nunito', sans-serif;
- font-family: 'Patrick Hand', cursive;">
- <ul style="margin-right: 5%; font-family: 'Nunito', sans-serif;
- font-family: 'Patrick Hand', cursive;">
+       <div class="logo"><img src="../img/logo_kids.gif"width="100px"> </div>
+       <nav >
+<ul style="margin-right: 5%; font-family: 'Nunito', sans-serif;
+font-family: 'Patrick Hand', cursive; color:black;">
+ <li><a style="color:black;" href="../index.html">Home</a></li>
+ <li><a style="color:black;" href="../product/product.php">Products</a></li>
+ <li><a style="color:black;" href="../Welcome/ContactUs.html">Contact Us</a></li>
+ <li><a style="color:black;" href="../Welcome/AboutUs.html">About US</a></li>
+ 
+ <li><a style="color:black;" href="../Login/Login.php">Login</a></li>
+ <li><a style="color:black;" href="../Regestration/Signup.php">Sign Up</a></li>
+ <li><a style="color:black;" href="../User/User.php"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+ <li><a style="color:black;" href="../Cart/cart.php"><i class="fas fa-shopping-cart"></i ></i></a></li>
 
- <li><a href="<?php echo $homepath; ?>">Home</a></li>
- <li><a href="<?php echo $shoppath; ?>">Products</a></li>
- <li><a href="<?php echo $cont; ?>">Contact Us</a></li>
- <li><a href="<?php echo $about; ?>">About US</a></li>
- <?php if(!isset($_GET["id"])){
-                echo '<a href="../Login/Login.php">Login</a>
-                      <a href="../Regestration/Signup.php">Register</a>';
-              }else{
-                echo '<a href="../User/User.php?id='.$sign.'"><i class="fa fa-user" aria-hidden="true"></i></a>';
-                echo '<a href="../index.html">Log Out</a>';
-              }
-              ?>
- <li><a href="<?php echo $cartpath; ?>">cart</a></li><br><br>
- </ul>
-  <hr style="width:70%; margin-left: 31%;">
-</nav>
-     </div>
+</ul> <hr style="width:70%; margin-left: 31%;">
+       </nav>
+
+    </div>
     <br><br><br>
 <section class="section-content ml">
     <div class="container-fluied">
@@ -146,7 +140,7 @@ if(isset($_GET['add'])){
                                             <!-- <input type="hidden" name="id_user"> -->
                                     <input type="hidden" name="hidden_price" value="<?php echo $row["price"]; ?>">
                                     <!----------------------------- change the color of the buttons 21-5-2022 at 6:22pm ------------------------>
-                                    <input type="submit" name="add" class="btn-warning btn-block btn-info" value="Add to cart">
+                                    <input type="submit" name="add" class="btn-warning btn-info" value="Add to cart">
                                 </figcaption>
                             </figure>
                         </form>

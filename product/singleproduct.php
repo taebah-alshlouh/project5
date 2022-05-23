@@ -4,14 +4,24 @@ include_once './function.inc.php';
 date_default_timezone_set("Asia/Amman");
 
 
-if(isset($_GET['add'])){
-    $quantity=$_GET['quantity'];
-      $add_id = $_GET['add'];
-      $adding="INSERT INTO `cart`( `quantity`) VALUES ('$quantity');";
-      mysqli_query($conn,$adding);
-  
-};
+session_start();
 
+if(empty($_SESSION['email'])){
+  echo "<style> .restrict{display:none;} </style>";
+}
+
+
+include_once '../Configration/connection.php';
+
+
+if(isset($_GET['add'])){
+  $quantity=$_GET['quantity'];
+    $add_id = $_GET['add'];
+    $id=$_GET['id'];
+    $adding="INSERT INTO `cart`(`product_id`, `quantity`) VALUES ('$id','$quantity');";
+    mysqli_query($conn,$adding);
+
+ }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,29 +35,29 @@ if(isset($_GET['add'])){
      <link rel="stylesheet" href="./product.css">
      <title>Details</title>
 </head>
-<header style="font-family: 'Nunito', sans-serif;
+<body>
+   <header style="font-family: 'Nunito', sans-serif;
 font-family: 'Patrick Hand', cursive;">
 <div class="l-header">
     <div class="land-container">
         
-        <div class="navbar">
+   
+<div class="navbar">
        <div class="logo"><img src="../img/logo_kids.gif"width="100px"> </div>
-      
        <nav >
 <ul style="margin-right: 5%; font-family: 'Nunito', sans-serif;
 font-family: 'Patrick Hand', cursive; color:black;">
- <li><a style="color:black;" href="./index.html">Home</a></li>
- <li><a style="color:black;" href="./product/product.php">Products</a></li>
- <li><a style="color:black;" href="./Welcome/ContactUs.html">Contact Us</a></li>
- <li><a style="color:black;" href="./Welcome/AboutUs.html">About US</a></li>
- 
- <li><a style="color:black;" href="./Login/Login.php">Login</a></li>
- <li><a style="color:black;" href="./Regestration/Signup.php">Sign Up</a></li>
- <li><a style="color:black;" href="./User/User.php"><i class="fa fa-user" aria-hidden="true"></i></a></li>
- <li><a style="color:black;" href="./Cart/cart.php"><i class="fas fa-shopping-cart"></i ></i></a></li>
+ <li><a style="color:black;" href="../index.php">Home</a></li>
+ <li><a style="color:black;" href="../product/product.php">Products</a></li>
+ <li><a style="color:black;" href="../Welcome/ContactUs.html">Contact Us</a></li>
+ <li><a style="color:black;" href="../Welcome/AboutUs.html">About US</a></li>
+  <li><a class="restrict" style="color:black;" href="../User/User.php"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+ <li><a class="restrict" style="color:black;" href="../Cart/cart.php"><i class="fas fa-shopping-cart"></i ></i></a></li>
 
 </ul> <hr style="width:70%; margin-left: 31%;">
        </nav>
+
+    </div>
       
 </header>
   
@@ -79,9 +89,9 @@ font-family: 'Patrick Hand', cursive;">
   
 
  </header> -->
- <body>
+
  <br>
- <section class="section-content padding-y bg">
+ <section class="section-content padding-y ">
     
     <div class="container">
 
@@ -90,7 +100,7 @@ font-family: 'Patrick Hand', cursive;">
             <div class="row no-gutters">
                 <?php
                ##########################################################################
-                $product_query = "SELECT * FROM `products` WHERE product_id =$_GET[id];";
+                $product_query = "SELECT * FROM `products` WHERE product_id =$_GET[id]";
                 $product_result = mysqli_query($conn, $product_query);
                 if (mysqli_num_rows($product_result) > 0) {
                     while ($row = mysqli_fetch_assoc($product_result)) {
@@ -118,6 +128,7 @@ font-family: 'Patrick Hand', cursive;">
                                 <br>
 
                                 <input type="hidden" name="hidden_product_name" value="<?php echo $row["product_name"]; ?>">
+                                <input type="hidden" name="id" value="<?php echo $row['product_id'] ?>">
                                 <input type="hidden" name="hidden_img" value="<?php echo $row["img"]; ?>">
                                 <input type="hidden" name="hidden_price" value="<?php echo $row["price"]; ?>">
                                 <input style="background-color:#e55951 ; height:3rem; font-size:larger;color:white; margin-left:5%;" type="submit" name="add" class="btn btn-block" value="Add to cart">
@@ -258,7 +269,7 @@ font-family: 'Patrick Hand', cursive;">
            class="text-center p-3"
            style="background-color: rgba(0, 0, 0, 0.2)"
            >
-        MST<sup>2</sup>&nbsp; Â© 2022 Copyright:
+        MST<sup>2</sup>&nbsp; © 2022 Copyright:
         <a  href="https://www.orange.jo/ar/pages/default.aspx" target="_blank">Orange.jo</a> 
           
       </div>
