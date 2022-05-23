@@ -28,20 +28,18 @@ if(isset($_GET['add'])){
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
     <link rel="stylesheet" href="product.css">
     <link rel="stylesheet" href="../style2.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>Store</title>
-    <style>
-        .prod{width: 240px; height: 150px; margin-left: 2%;}
-    </style>
 </head>
 <body>
 <div class="navbar">
-        <div class="logo"><img src="../img/logo_kids.gif"width="100px"> </div>
+        <div class="logo"><img src="../img/logo_kids.gif"width="80px"> </div>
        
-        <nav style="font-family: 'Nunito', sans-serif;
+<nav style="font-family: 'Nunito', sans-serif;
  font-family: 'Patrick Hand', cursive;">
- <ul style="margin-right: 5%; font-family: 'Nunito', sans-serif;
+ <ul style="margin-right: 5%;  margin-top: 2%; font-family: 'Nunito', sans-serif;
  font-family: 'Patrick Hand', cursive;">
  <li><a href="../index.html">Home</a></li>
  <li><a href="../product/product.php">Products</a></li>
@@ -52,35 +50,24 @@ if(isset($_GET['add'])){
  <li><a href="../Regestration/Signup.php">Sign Up</a></li>
  <li><a href="../User/User.php"><i class="fa fa-user" aria-hidden="true"></i></a></li>
  <li><a href="../Cart/cart.php"><img style="position:absolute; margin-top:-2.5%; width:4%" src="../img/cart2.png" ></a></li><br><br>
-<li><select class="custom-select custom-select-sm mb-3">
-     <option selected disabled> Change Category </option>
-        <?php	$r ="SELECT * FROM categories";
-         $res_category=mysqli_query($conn, $r);
-		while ($row = mysqli_fetch_array($res_category)) { ?>
-          <option><a href="category.php?category=<?php echo $row['category_id']; ?>"><?php echo $row['category_name'];?>
-             </a></option>
-         <?php
-		}
-          ?>
- </select></li>
  </ul> <hr style="width:70%; margin-left: 31%;">
-        </nav>
-     </div>
+</nav>
+</div>
 
 </ul>
        </nav>
     </div>
-    <br><br><br>
+<br>
 <section class="section-content ml">
-    <div class="container-fluied">
+    <div class="container">
 
         <div class="row" style="justify-content: center!important;">
-            <main class="col-md-9">
+            <main class="col-md-12">
 
                 <div class="row" >
                     <?php
 
-							$limit = 9;
+							$limit = 12;
 
 							if (isset($_GET['page'])) {
 								$page = $_GET['page'];
@@ -96,7 +83,7 @@ if(isset($_GET['add'])){
 								while ($row = mysqli_fetch_assoc($product_result)) {
 							?>
 
-                    <div class="col-md-4">  
+                    <div class="col-md-3">  
                         <!-- cart.php?id=<?php echo $row["product_id"]; ?>###################################################### -->
                         <form action="" method="GET">
                             <figure class="card card-product-grid">
@@ -117,7 +104,7 @@ if(isset($_GET['add'])){
                                             class="title"><?php echo $row['product_name']; ?></a>
 
                                         <div class="price-wrap mt-2">
-                                            <span class="price">Price: <?php echo $row['price']; ?> $</span>
+                                            <span class="price">Price: <?php echo $row['price']; ?> JD</span>
                                         </div> 
                                     </div>
                                     <!-- col.// -->
@@ -135,7 +122,7 @@ if(isset($_GET['add'])){
                                             <!-- <input type="hidden" name="id_user"> -->
                                     <input type="hidden" name="hidden_price" value="<?php echo $row["price"]; ?>">
                                     <!----------------------------- change the color of the buttons 21-5-2022 at 6:22pm ------------------------>
-                                    <input type="submit" name="add" class="btn-warning btn-block btn-info" value="Add to cart">
+                                    <input type="submit" name="add" class="btn-warning " value="Add to cart">
                                 </figcaption>
                             </figure>
                         </form>
@@ -147,9 +134,8 @@ if(isset($_GET['add'])){
 			} ?>
                 </div> <!-- row end.// -->
 
-
-                <div style="text-align:center" class="col-lg-12">
-
+<br>
+  <div style="text-align:center" class="col-lg-12">
 
 				<?php
 					$dep_query1 = "SELECT * FROM `products`";
@@ -222,7 +208,7 @@ if(isset($_GET['add'])){
   
             <!-- Grid column -->
             <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-              <h6 class="text-uppercase mb-4 font-weight-bold">Categores</h6>
+              <h6 class="text-uppercase mb-4 font-weight-bold">Categories</h6>
               <p >
                 <a class="text-primary">Electronic Toys</a>
               </p>

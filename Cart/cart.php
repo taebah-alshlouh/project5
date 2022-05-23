@@ -117,7 +117,7 @@
                 <td><img src="<?php echo $row['img'];?>" width="50"></td>
                 <td><?= $row['product_name'] ?></td>
                 <td>
-                  $ &nbsp;&nbsp;<?= number_format($row['price'],2); ?>
+                  JD &nbsp;&nbsp;<?= number_format($row['price'],2); ?>
                 </td>
                 <input type="hidden" class="pprice" value="<?= $row['price'] ?>">
                 <td>
@@ -128,7 +128,7 @@
                   <input type="submit" value="update" name="update_update_btn">
                </form>
                 </td>
-                <td>$ &nbsp;&nbsp;<?php echo $sub_total = ($row['price'] * $row['quantity']);?></td>
+                <td>JD &nbsp;&nbsp;<?php echo $sub_total = ($row['price'] * $row['quantity']);?></td>
                 <td>
                   <a href="cart.php?remove=<?= $row['product_id'] ?>" class="text-danger lead" onclick="return confirm('Are you sure want to remove this item?');">
                   <i class="fa fa-trash" aria-hidden="true"></i></a>
@@ -144,7 +144,7 @@
                     Shopping</a>
                 </td>
                 <td colspan="2"><b>Grand Total</b></td>
-                <td><b>$</i>&nbsp;&nbsp;<?php echo $grand_total; ?></b></td>
+                <td><b>JD</i>&nbsp;&nbsp;<?php echo $grand_total; ?></b></td>
                 <td>
                   <a href="../checkout/checkout.php" class="btn btn-info <?= ($grand_total > 1) ? '' : 'disabled'; ?>"><i class="far fa-credit-card"></i>&nbsp;&nbsp;Checkout</a>
                 </td>

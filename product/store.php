@@ -37,7 +37,7 @@ if(isset($_GET['add'])){
 </head>
 <body>
 <div class="navbar">
-        <div class="logo"><img src="../img/logo_kids.gif"width="100px"> </div>
+        <div class="logo"><img src="../img/logo_kids.gif"width="80px"> </div>
        
         <nav style="font-family: 'Nunito', sans-serif;
  font-family: 'Patrick Hand', cursive;">
@@ -72,15 +72,15 @@ if(isset($_GET['add'])){
     </div>
     <br><br><br>
 <section class="section-content ml">
-    <div class="container-fluied">
+    <div class="container">
 
         <div class="row" style="justify-content: center!important;">
-            <main class="col-md-9">
+            <main class="col-md-12">
 
                 <div class="row" >
                     <?php
 
-							$limit = 9;
+							$limit = 12;
 
 							if (isset($_GET['page'])) {
 								$page = $_GET['page'];
@@ -96,7 +96,7 @@ if(isset($_GET['add'])){
 								while ($row = mysqli_fetch_assoc($product_result)) {
 							?>
 
-                    <div class="col-md-4">  
+                    <div class="col-md-3">  
                         <!-- cart.php?id=<?php echo $row["product_id"]; ?>###################################################### -->
                         <form action="" method="GET">
                             <figure class="card card-product-grid">
@@ -135,7 +135,7 @@ if(isset($_GET['add'])){
                                             <!-- <input type="hidden" name="id_user"> -->
                                     <input type="hidden" name="hidden_price" value="<?php echo $row["price"]; ?>">
                                     <!----------------------------- change the color of the buttons 21-5-2022 at 6:22pm ------------------------>
-                                    <input type="submit" name="add" class="btn-warning btn-block btn-info" value="Add to cart">
+                                    <input type="submit" name="add" class="btn-warning " value="Add to cart">
                                 </figcaption>
                             </figure>
                         </form>
