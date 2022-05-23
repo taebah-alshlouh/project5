@@ -29,8 +29,7 @@ if(isset($_GET['add'])){
     <link rel="stylesheet" href="product.css">
     <link rel="stylesheet" href="../style2.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.css">
     <title>Store</title>
 </head>
 <body>
@@ -45,7 +44,6 @@ if(isset($_GET['add'])){
  <li><a href="../product/product.php">Products</a></li>
  <li><a href="../Welcome/ContactUs.html">Contact Us</a></li>
  <li><a href="../Welcome/AboutUs.html">About US</a></li>
- 
  <li><a href="../Login/Login.php">Login</a></li>
  <li><a href="../Regestration/Signup.php">Sign Up</a></li>
  <li><a href="../User/User.php"><i class="fa fa-user" aria-hidden="true"></i></a></li>

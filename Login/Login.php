@@ -21,11 +21,11 @@ if (isset($_GET['submit'])){
             print_r($row['Password']);
 
                 if(($loginPassword==$row['Password'])){
-                    $loginPassword_result="<span style=' color:green'>✅ Correct Password</span><br>";
+                    $loginPassword_result="<br><small style='color:white'>✅ Correct Password</small><br>";
                     $loginPassword_correct=true;
                    
                 }else{
-                    $loginPassword_result="<span style=' color:red'>❌Incorrect Password</span><br>";
+                    $loginPassword_result="<br><small style='color:white'>❌Incorrect Password</small><br>";
                     $loginPassword_correct=false;
             }
         }
@@ -33,7 +33,7 @@ if (isset($_GET['submit'])){
     }   
     
     if($loginEmail_correct && $loginPassword_correct){
-        header('location:../index.php');
+        header('location:../product/product.php');
       
         $row['last-login']= date("d-m-Y - h:i:sa");
         
@@ -45,16 +45,16 @@ if (isset($_GET['submit'])){
     
     if($loginEmail=="admin@gmail.com"){
 		if($loginPassword== "AdminAdmin1"){
-            $loginEmail_result="<span style=' color:green'>✅ Correct Email</span><br>";
+            $loginEmail_result="<br><small style='color:white'>✅ Correct Email</small><br>";
 			$adminEmail_correct=true;
 			$adminPass_correct=true;
 	
 		}else{
-			$loginPassword_result="<span style=' color:red'>❌Incorrect Password</span><br>";
+			$loginPassword_result="<br><small style='color:white'>❌Incorrect Password</small><br>";
 	    	$adminPass_correct=false;
 		}
 	}else{
-		$loginEmail_result="<span style=' color:red'>❌Incorrect Email or Password</span><br>";
+		$loginEmail_result="<br><small style='color:white'>❌Incorrect Password or Email</small><br>";
 		$adminEmail_correct=false;
 	}
 	if ($adminEmail_correct && $adminPass_correct ){
@@ -70,58 +70,44 @@ if (isset($_GET['submit'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="login.css">
     <title>Login</title>
+    <style>
+      body{
+        background-color:white;
+      }
+    </style>
 </head>
 <body>
-
-<div class="navbar">
-       <div class="logo"><img src="../img/logo_kids.gif"width="100px"> </div>
-      
-       <nav style="font-family: 'Nunito', sans-serif;
-font-family: 'Patrick Hand', cursive;">
-<ul style="margin-right: 5%; font-family: 'Nunito', sans-serif;
-font-family: 'Patrick Hand', cursive;">
-<li><a href="../index.html">Home</a></li>
-<li><a href="../product/product.php">Products</a></li>
-<li><a href="../Welcome/ContactUs.html">Contact Us</a></li>
-<li><a href="../Welcome/AboutUs.html">About US</a></li>
-
-<li><a href="../Login/Login.php">Login</a></li>
-<li><a href="../Regestration/Signup.php">Sign Up</a></li>
-<li><a href=""><img style="position:absolute; margin-top:-2.5%; width:4%" src="../img/cart2.png" ></a></li>
-
-</ul> <hr style="width:70%; margin-left: 31%;">
-</nav>
-      
+<div id="wrap">
+<form method="GET">
+  <div class="form">
+    <h1 class="form-header">LOGIN</h1>
+    <div class="form-content">
+      <div class="form-container">
+        <div class="case">
+          <input type="email" name="loginEmail" id="loginEmail"   placeholder="Email" class="form-input">
+          <?php if(isset($loginEmail_result)){echo $loginEmail_result;}?>
+        </div>
+      </div>
+      <div class="form-container">
+        <div class="case">
+          <input type="password" name="loginPassword" id="loginPassword"  placeholder="Password" class="form-input">
+          <?php if(isset($loginPassword_result)){echo $loginPassword_result;}?>
+        </div>
+      </div>
+      <div class="form-add-text">
+      <span class="btn-text">Don't have an account <a style="text-decoration:none ; color:#e55951" href="../Regestration/Signup.php" >Sign Up!</span>
+      </div>
+      <div class="form-button">
+        <button type="submit" name="submit" class="btn-login">
+          <span class="btn-text" >Log in</span>
+        </button>
+      </div>
     </div>
-    
-        <form method="GET" class="reg-form">
-        <fieldset>
-        <h1 class="legend"><strong>L</strong>OGIN</h1><hr>
-                <p class="welc">Welcome back! Login with your credentials</p>
-                <div class="txt">
-                <label class="reg-lbl" style="font-size:20px;font-weight: bold;color: green;">Email</label>
-                <br>
-                <!--Email-->
-                <input type="email" name="loginEmail" id="loginEmail"   placeholder="Your Email" required ><br>
-                <?php if(isset($loginEmail_result)){echo $loginEmail_result;}?>
-                <br>
-                <!--Password-->
-                <label class="reg-lbl" style="font-size:20px;font-weight: bold;color: green;">Password</label>
-                <br>
-                <input type="password" name="loginPassword" id="loginPassword"   placeholder="Password" required><br>
-                <?php if(isset($loginPassword_result)){echo $loginPassword_result;}?>
-                <br>
-                <input class="btn btn-warning"type="submit" value="Submit" name="submit">
-<br><br>
-                <span> <label class="link"> Don`t have an account !!<a href='../Regestration/Signup.php'>Sign Up</a></label></span><br>
-                </div>
-</fieldset>
-        </form>
-        <marquee behavior="alternate">
-    <img src="https://img.freepik.com/free-vector/kids-train-toy-cartoon-style-vector-illustration-isolated-white-background_356415-1272.jpg?size=626&ext=jpg" alt="">
-  </marquee>
-
+  </div>
+     
+</div>
+</form>
 </body>
 </html>

@@ -4,19 +4,19 @@
 }
 
 .contact .heading h2 {
-  font-size: 35px;
+  font-size: 30px;
   font-weight: 700;
   margin: 0;
   padding: 0;
-  margin-bottom:3%;
+
 }
 
 .contact .heading h2 span {
-  color: #e46a64e6;
+  color: #dc3545;
 }
 
 .contact .heading p {
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 400;
   line-height: 1.7;
   color: #999999;
@@ -37,14 +37,14 @@
   padding: 10px;
   border-radius: 10px;
   font-size: 15px;
-  background: #e46a64e6 !important;
+  background: #dc3545;
   color: #ffffff;
 }
 
 .contact .title h3 {
   font-size: 23px;
   font-weight: 600;
-  color: #e46a64e6;
+  color: #dc3545;
 }
 
 .contact .title p {
@@ -70,7 +70,7 @@
 .contact .content .info h4 {
   font-size: 17px;
   line-height: 1.4;
-  color: #e46a64e6;
+  color: #ffc107;
 }
 
 .contact .content .info h4 span {

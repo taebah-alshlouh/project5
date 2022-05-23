@@ -7,6 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    welcon error
+    Welcome "home page"
 </body>
 </html>
